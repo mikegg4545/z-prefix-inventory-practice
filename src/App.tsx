@@ -1,10 +1,10 @@
 import "./App.css";
+import InventoryPage from "./pages/InventoryPage";
 
 function App() {
   return (
     <main>
-      <h1>Inventory Practice App</h1>
-      <p>Practice full-stack CRUD patterns for Z-Prefix.</p>
+      <InventoryPage />
     </main>
   );
 }
