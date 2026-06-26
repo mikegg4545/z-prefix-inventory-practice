@@ -31,6 +31,11 @@ export default function InventoryPage() {
     setNewItemDescription("");
     setNewItemQuantity("");
   }
+  function handleDeleteItem(id: number) {
+    const updatedItems = items.filter((item) => item.id !== id);
+
+    setItems(updatedItems);
+  }
   return (
     <section>
       <h1>My Inventory</h1>
@@ -62,7 +67,7 @@ export default function InventoryPage() {
 
         <button onClick={handleAddItem}>Add Item</button>
       </div>
-      <ItemTable items={items} />
+      <ItemTable items={items} onDeleteItem={handleDeleteItem} />
     </section>
   );
 }

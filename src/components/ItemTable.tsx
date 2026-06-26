@@ -2,9 +2,10 @@ import type { Item } from "../types/item";
 
 type ItemTableProps = {
   items: Item[];
+  onDeleteItem: (id: number) => void;
 };
 
-export default function ItemTable({ items }: ItemTableProps) {
+export default function ItemTable({ items, onDeleteItem }: ItemTableProps) {
   return (
     <table>
       <thead>
@@ -12,6 +13,7 @@ export default function ItemTable({ items }: ItemTableProps) {
           <th>Name</th>
           <th>Quantity</th>
           <th>Description</th>
+          <th>Actions</th>
         </tr>
       </thead>
 
@@ -21,6 +23,9 @@ export default function ItemTable({ items }: ItemTableProps) {
             <td>{item.name}</td>
             <td>{item.quantity}</td>
             <td>{item.description}</td>
+            <td>
+              <button onClick={() => onDeleteItem(item.id)}>Delete</button>
+            </td>
           </tr>
         ))}
       </tbody>
